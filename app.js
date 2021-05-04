@@ -23,6 +23,7 @@ bot.help((ctx) => {
     - /help
     - /Tell_Fortune :- to get a fortune message./n
     - /say :- will reply back with the text you write after it. 
+    - /About_Dev :- To know more about me.
     For ex:- (/say Hello user) will reply hello user/n
     - It can reply back to your hello.
     - Try sending some sticker.
@@ -58,5 +59,17 @@ bot.command("Tell_Fortune", (ctx) => {
     ctx.reply(res.data.fortune);
   });
 });
+
+bot.command("About_Dev", (ctx) => {
+  ctx.telegram.sendMessage(ctx.chat.id,'Know About ME',{
+    reply_markup:{
+      inline_keyboard:[
+        [{text:"LinkedIn", url:"https://www.linkedin.com/in/abhishek-srivas-8421611a1/"},{text:"Github", url:"https://github.com/AbhishekSrivas114319"}],
+      
+      ]
+    }
+  })
+});
+
 
 bot.launch();
